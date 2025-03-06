@@ -11,4 +11,4 @@ test_db = [
 
 @app.post("/item/")
 async def items(skip: int=0, limit: int=0):
-    return test_db[skip:limit+2]
+    return test_db[skip : limit+2]
