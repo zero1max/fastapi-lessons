@@ -9,6 +9,11 @@ test_db = [
 ]
 
 
-@app.post("/item/")
-async def items(skip: int=0, limit: int=0):
-    return test_db[skip : limit+2]
+# @app.post("/item/")
+# async def items(skip: int=0, limit: int=0):
+#     return test_db[skip : limit+2]
+
+@app.get("/items/{item_id}")
+async def read_user_item(item_id: str, needy: str, skip: int = 0, limit: int | None = None):
+    item = {"item_id": item_id, "needy": needy, "skip": skip, "limit": limit}
+    return item
